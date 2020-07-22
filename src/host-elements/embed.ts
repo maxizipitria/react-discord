@@ -5,7 +5,7 @@ import { filterByMessageId, ReactionDetails, ReactionEvent } from "../discord/di
 import { getEmbedAuthorFromUser } from "../helpers/get-author";
 import type { IEmbedProps } from "../interfaces/IEmbedElementProps";
 import type { IHostElement } from "../interfaces/IHostElement";
-import type { IDiscordRootContainer } from "../interfaces/IRootContainer";
+import type { IRootContainer } from "../interfaces/IRootContainer";
 
 export type IEmbedEventTypes = "reaction-added" | "reaction-removed";
 
@@ -18,7 +18,7 @@ export class EmbedHostElement implements IHostElement<IEmbedProps> {
   private updateQueue$ = new Subject<Discord.MessageEmbed>();
 
   constructor(
-    public readonly container: IDiscordRootContainer,
+    public readonly container: IRootContainer,
     public props: IEmbedProps,
     public readonly message: Discord.Message,
   ) {

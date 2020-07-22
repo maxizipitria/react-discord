@@ -2,7 +2,7 @@
   "name": "react-discord",
   "version": "0.1.13",
   "description": "A react reconciler to render react components on Discord",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "dependencies": {
     "discord.js": "^12.2.0",
     "react-reconciler": "^0.25.1",

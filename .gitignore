@@ -1,2 +1,4 @@
 /dist
+!dist/README.md
+!dist/package.json
 /node_modules

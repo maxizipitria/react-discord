@@ -1,7 +1,7 @@
 import ReactReconciler from "react-reconciler";
 import type { IHostElement } from "./interfaces/IHostElement";
 import { HostElementType } from "./interfaces/IHostElementType";
-import type { IDiscordRootContainer } from "./interfaces/IRootContainer";
+import type { IRootContainer } from "./interfaces/IRootContainer";
 
 const reconciler = ReactReconciler({
   /* configuration for how to talk to the host environment */
@@ -20,7 +20,7 @@ const reconciler = ReactReconciler({
   async createInstance(
     type: HostElementType,
     props: Record<string, unknown>,
-    rootContainerInstance: IDiscordRootContainer,
+    rootContainerInstance: IRootContainer,
     hostContext,
     internalInstanceHandle,
   ): Promise<IHostElement> {
@@ -28,7 +28,7 @@ const reconciler = ReactReconciler({
   },
   async createTextInstance(
     text: string,
-    rootContainerInstance: IDiscordRootContainer,
+    rootContainerInstance: IRootContainer,
     hostContext,
     internalInstanceHandle,
   ) {
@@ -45,7 +45,7 @@ const reconciler = ReactReconciler({
     // parent.appendChild(child);
   },
 
-  async removeChildFromContainer(container: IDiscordRootContainer, child: Promise<IHostElement>) {
+  async removeChildFromContainer(container: IRootContainer, child: Promise<IHostElement>) {
     const element = await child;
     await container.removeElement(element);
   },
@@ -64,7 +64,7 @@ const reconciler = ReactReconciler({
     type: "embed",
     oldProps: Record<string, unknown>,
     newProps: Record<string, unknown>,
-    rootContainerInstance: IDiscordRootContainer,
+    rootContainerInstance: IRootContainer,
     currentHostContext,
   ) {
     return null;
@@ -96,7 +96,7 @@ const reconciler = ReactReconciler({
 });
 
 export const ReactDiscord = {
-  render(whatToRender: JSX.Element, where: IDiscordRootContainer) {
+  render(whatToRender: JSX.Element, where: IRootContainer) {
     const container = reconciler.createContainer(where, false, false);
     reconciler.updateContainer(whatToRender, container, null, () => null);
   },

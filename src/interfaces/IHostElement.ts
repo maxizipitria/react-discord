@@ -3,7 +3,7 @@ import Discord from "discord.js";
 // import { debounceTime, filter } from "rxjs/operators";
 import { filterByMessageId, ReactionDetails, ReactionEvent } from "../discord/discord-events";
 import { IReactionConfig } from "./IReactionConfig";
-import { IDiscordRootContainer } from "./IRootContainer";
+import { IRootContainer } from "./IRootContainer";
 
 export interface IHostElementProps {
   reactions?: IReactionConfig[];
@@ -12,7 +12,7 @@ export interface IHostElementProps {
 }
 
 export interface IHostElement<P = {}> {
-  readonly container: IDiscordRootContainer;
+  readonly container: IRootContainer;
   readonly message: Discord.Message;
   props: P & IHostElementProps;
   updateProps(newProps: Record<string, unknown>): void | Promise<void>;

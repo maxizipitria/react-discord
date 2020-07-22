@@ -5,11 +5,15 @@ import { TextHostElement } from "./host-elements/text";
 import type { IEmbedProps } from "./interfaces/IEmbedElementProps";
 import type { IHostElement } from "./interfaces/IHostElement";
 import { HostElementType } from "./interfaces/IHostElementType";
-import type { IDiscordRootContainer } from "./interfaces/IRootContainer";
+import type { IRootContainer } from "./interfaces/IRootContainer";
 import type { ITextProps } from "./interfaces/ITextElementProps";
 
-export class RootContainer implements IDiscordRootContainer {
-  constructor(public discord: DiscordS, public textChannel: Discord.TextChannel) {}
+export class RootContainer implements IRootContainer {
+  public discord: DiscordS;
+
+  constructor(discordClient: Discord.Client, public textChannel: Discord.TextChannel) {
+    this.discord = new DiscordS(discordClient);
+  }
 
   public async createElement<P = {}>(type: HostElementType, props: P): Promise<IHostElement> {
     try {
