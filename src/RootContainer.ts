@@ -11,7 +11,10 @@ import type { ITextProps } from "./interfaces/ITextElementProps";
 export class RootContainer implements IRootContainer {
   public discord: DiscordS;
 
-  constructor(discordClient: Discord.Client, public textChannel: Discord.TextChannel) {
+  constructor(
+    discordClient: Discord.Client,
+    public textChannel: Discord.TextChannel | Discord.DMChannel,
+  ) {
     this.discord = new DiscordS(discordClient);
   }
 
@@ -33,7 +36,7 @@ export class RootContainer implements IRootContainer {
         const textProps = props as ITextProps;
         const discordMessage = await textChannel.send(textProps.value);
         const textElement = new TextHostElement(this, textProps, discordMessage);
-
+        await textElement.addInitialReactions();
         return textElement;
         // return;
       }

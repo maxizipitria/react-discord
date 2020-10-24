@@ -50,17 +50,18 @@ export class DiscordEvents {
       };
 
       const preventUserReaction = async () => {
-        if (reaction.message.deleted) {
-          return;
-        }
+        return;
+        // if (reaction.message.deleted) {
+        //   return;
+        // }
 
-        try {
-          await reaction.users.remove(user.id);
-        } catch (err) {
-          if (err.code !== Constants.APIErrors.UNKNOWN_MESSAGE) {
-            throw new Error(err);
-          }
-        }
+        // try {
+        //   await reaction.users.remove(user.id);
+        // } catch (err) {
+        //   if (err.code !== Constants.APIErrors.UNKNOWN_MESSAGE) {
+        //     throw new Error(err);
+        //   }
+        // }
       };
 
       this._messageReactionAdd$.next({

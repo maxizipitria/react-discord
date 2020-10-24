@@ -1,0 +1,11 @@
+.github/*
+.vscode/*
+
+.eslintignore
+.eslintrc
+.gitattributes
+jest.config.json
+tsconfig.json
+
+coverage/*
+src/*
