@@ -1,6 +1,6 @@
 {
   "name": "react-discord",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "A react reconciler to render react components on Discord",
   "main": "lib/index.js",
   "dependencies": {

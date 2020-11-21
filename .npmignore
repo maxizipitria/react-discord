@@ -3,6 +3,7 @@
 
 .eslintignore
 .eslintrc
+.npmrc
 .gitattributes
 jest.config.json
 tsconfig.json
